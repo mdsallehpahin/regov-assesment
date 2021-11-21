@@ -1,0 +1,26 @@
+package com.section2;
+
+public class MainClass {
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		//Section 2 Initiate 3 instance 
+		Account acc1 = new Account("Freddy Mercury", 1000);
+		Account acc2 = new Account("John McAfee", 2000);
+		Account acc3 = new Account("Elon Musk", 3000);
+		System.out.println(acc3.toStr());
+		System.out.println(acc2.toStr());
+		System.out.println(acc1.toStr());
+		acc1.deposit(2000);
+		System.out.println(acc1.toStr());
+		acc1.withdraw(500);
+		System.out.println(acc1.toStr());
+		
+		DevAccount acc4 = new DevAccount("Johnny Depp", 2032);
+		System.out.println("Get Balance : " + acc4.getBalance());
+		acc4.setBalance(100000);
+		System.out.println(acc4.toStr());
+		acc4.transfer(acc2, 5040);
+		System.out.println(acc2.toStr());
+		System.out.println(acc4.toStr());
+	}
+}

@@ -1,0 +1,24 @@
+package section1;
+
+import java.math.BigInteger;
+
+public class QuestionOne {
+
+	public static void main(String[] args) {
+		final int n = 100;
+		BigInteger res = BigInteger.valueOf(1);
+		for(int i=1; i<=n; i++) {
+			res = res.multiply(BigInteger.valueOf(i));
+		}
+		String factorialStr = res.toString();
+		
+		String s = "...stuff...";
+
+		for (int i = 0; i < s.length(); i++){
+		    char c = s.charAt(i);        
+		    //Process char
+		}
+		System.out.println("---> "+factorialStr);
+	}
+
+}

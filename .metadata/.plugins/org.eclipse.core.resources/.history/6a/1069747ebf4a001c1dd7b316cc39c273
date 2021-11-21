@@ -1,0 +1,17 @@
+package section1;
+
+public class QuestionOne {
+
+	public static void main(String[] args) {
+		final int n = 100;
+		BigIntegr res = 1;
+		for(int i=1; i<=n; i++) {
+			System.out.println("---> i " + i);
+			System.out.println("---> res " + res);
+
+			res = (res*i);
+		}
+		System.out.println("---> res" + res);
+	}
+
+}

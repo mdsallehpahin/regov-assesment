@@ -1,0 +1,24 @@
+package section1;
+
+import java.math.BigInteger;
+
+public class QuestionOne {
+
+	public static void main(String[] args) {
+		final int n = 100;
+		BigInteger res = BigInteger.valueOf(1);
+		for(int i=1; i<=n; i++) {
+			res = res.multiply(BigInteger.valueOf(i));
+		}
+		String factorialStr = res.toString();
+		int sum = 0;
+		System.out.println("---> "+factorialStr);)
+		for (int i = 0; i < factorialStr.length(); i++){
+		    int no = (int)factorialStr.charAt(i);
+		    sum = sum + no;
+		    System.out.println("---> "+no +" "+sum);
+		}
+		System.out.println("---> "+sum);
+	}
+
+}

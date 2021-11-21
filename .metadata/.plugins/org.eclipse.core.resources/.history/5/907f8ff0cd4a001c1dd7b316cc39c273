@@ -1,0 +1,111 @@
+package com.section2;
+
+import java.util.List;
+import java.util.Random;
+
+public class MainClass {
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		//Section 2 Initiate 3 instance 
+		Account acc1 = new Account("Freddy Mercury", 1000);
+		Account acc2 = new Account("John McAfee", 2000);
+		Account acc3 = new Account("Elon Musk", 3000);
+		System.out.println(acc3.toStr());
+		System.out.println(acc2.toStr());
+		System.out.println(acc1.toStr());
+		acc1.deposit(2000);
+		System.out.println(acc1.toStr());
+		acc1.withdraw(500);
+		System.out.println(acc1.toStr());
+		
+		DevAccount acc4 = new DevAccount("John McAfee", 2032);
+		System.out.println("Get Balance : " + acc4.getBalance());
+		acc4.setBalance(100000);
+		System.out.println(acc4.toStr());
+		acc4.transfer(acc2, 5040);
+		System.out.println(acc2.toStr());
+		System.out.println(acc4.toStr());
+
+		
+
+
+	}
+
+	static class Self {
+		public Self(String name) {
+			this.id = (new Random()).nextInt(100);
+			this.name = name;
+		}
+
+		private int id;
+		private String name;
+		private List<Account> accounts;
+
+		public int getId() {
+			return id;
+		}
+
+		public void setId(int id) {
+			this.id = id;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public List<Account> getAccounts() {
+			if(this.accounts==null) {
+				this.accounts = new ArrayList<Account>();
+			}
+			return accounts;
+		}
+	}
+
+	static class Account {
+		private Self user;
+		private double balance;
+		public Account(String name, double balance) {
+			this.user = new Self(name);
+			this.balance = balance;
+		}
+		
+		public void deposit(double amount) {
+			this.balance = this.balance+amount;
+		}
+		public void withdraw(double amount) throws Exception {
+			if(this.balance<amount) throw new Exception("Balance is not enough. ");
+			this.balance = this.balance-amount;
+		}
+		
+		public String toStr() {
+			return "ID: " +user.id+" - "+ user.name + "'s account. Balance: "+ this.balance;
+		}
+		
+	}
+	
+	static class DevAccount extends Account{
+		public DevAccount(String name, double balance) {
+			super(name, balance);
+		}
+		
+		public double getBalance() {
+			return super.balance;
+		}
+		
+		public void setBalance(double balance) {
+			super.balance = balance;
+		}
+		
+		public void transfer(Account receipientAccount, double amount) throws Exception{
+			this.withdraw(amount);
+			receipientAccount.deposit(amount);
+		}
+		
+		
+	}
+
+}

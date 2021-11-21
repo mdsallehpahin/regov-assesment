@@ -1,0 +1,22 @@
+package com.section2;
+
+public class DevAccount extends Account{
+	public DevAccount() {
+		super(name, balance);
+	}
+	
+	public double getBalance() {
+		return super.balance;
+	}
+	
+	public void setBalance(double balance) {
+		super.balance = balance;
+	}
+	
+	public void transfer(Account receipientAccount, double amount) throws Exception{
+		this.withdraw(amount);
+		receipientAccount.deposit(amount);
+	}
+	
+	
+}
